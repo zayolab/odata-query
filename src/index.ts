@@ -205,7 +205,7 @@ function buildFilter(filters: Filter = {}, propPrefix = ''): string {
             const builtFilters = value
               .map(v => buildFilter(v, propPrefix))
               .filter(f => f)
-              .map(f => (LOGICAL_OPERATORS.indexOf(op) !== -1 ? `(${f})` : f));
+              .map(f => (LOGICAL_OPERATORS.indexOf(op) !== -1 ? `( '${f}' )` : f));
             if (builtFilters.length) {
               if (LOGICAL_OPERATORS.indexOf(op) !== -1) {
                 if (builtFilters.length) {
